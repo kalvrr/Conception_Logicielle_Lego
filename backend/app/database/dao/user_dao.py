@@ -1,5 +1,6 @@
+from backend.app.database.connexion_duckdb import db_connection
+
 from app.business_object.user import User
-from app.database.connexion import db_connection
 
 
 class UserDAO:

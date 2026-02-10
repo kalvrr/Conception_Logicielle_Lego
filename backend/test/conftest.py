@@ -1,7 +1,7 @@
+from backend.app.database.connexion_duckdb import DB_TEST_PATH, get_connection
 from dotenv import load_dotenv
 import pytest
 
-from app.database.connexion import DB_TEST_PATH, get_connection
 from app.database.dao.user_dao import UserDAO
 
 
@@ -18,10 +18,10 @@ def init_test_db():
         DB_TEST_PATH.unlink()
 
     # Initialiser la base de test
-    from app.database.duckdb import init_db
+    from backend.app.database.duckdb import init_db_lego
 
     test_db_file = "lego_test.duckdb"
-    init_db.main(test_db_file)
+    init_db_lego.main(test_db_file)
 
     yield
 
