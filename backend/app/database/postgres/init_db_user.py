@@ -6,8 +6,7 @@ from pathlib import Path
 
 import psycopg2
 
-# from app.database.connexion_postgres import PG_CONFIG
-from app.database.connexion_postgres import POSTGRES_URL
+from app.database.connexion_postgres import PG_CONFIG
 
 
 def init_postgres_db():
@@ -15,11 +14,11 @@ def init_postgres_db():
     print("🐘 Initialisation de PostgreSQL...")
 
     # Connexion
-    conn = psycopg2.connect(POSTGRES_URL)
+    conn = psycopg2.connect(**PG_CONFIG)
     cur = conn.cursor()
 
     # Lire le schema
-    schema_path = Path(__file__).parent / "schema.sql"
+    schema_path = Path(__file__).parent / "schema_user.sql"
     with open(schema_path) as f:
         schema_sql = f.read()
 
